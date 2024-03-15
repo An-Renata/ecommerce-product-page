@@ -10,6 +10,7 @@ import ImagesComponent from "./ui/ImagesComponent";
 import Header from "./ui/Header";
 import ProductDescription from "./ui/ProductDescription";
 import ProductPrice from "./ui/ProductPrice";
+import AddToCart from "./ui/AddToCart";
 
 const StyledApp = styled.div`
   padding: 0 100px;
@@ -50,41 +51,7 @@ function App() {
           <Header>
             <ProductDescription />
             <ProductPrice />
-
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "20px",
-                height: "40px",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "40px",
-                  backgroundColor: "var(--color-light-grayish-blue)",
-                  borderRadius: "10px",
-                  padding: "0 10px",
-                  height: "inherit",
-                  color: "var(--color-very-dark-blue)",
-                  fontWeight: "600",
-                  fontSize: "1.4rem",
-                }}
-              >
-                <img src="../public/images/icon-minus.svg" />
-                <p>2</p>
-                <img src="../public/images/icon-plus.svg" />
-              </div>
-
-              {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-              {/* button place */}
-              <Button>
-                <HiOutlineShoppingCart size={15} />
-                Add to cart
-              </Button>
-            </div>
+            <AddToCart />
           </Header>
         </Main>
       </StyledApp>
