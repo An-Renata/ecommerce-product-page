@@ -6,12 +6,23 @@ const Price = styled.div`
   margin-bottom: 30px;
   display: flex;
   align-items: center;
+  position: relative;
+
+  &::after {
+    content: "${(props) =>
+      props.prevPrice > 0 ? "$" + props.prevPrice.toFixed(2) : ""}";
+    text-decoration: line-through;
+    position: absolute;
+    top: 35px;
+    font-size: 1.4rem;
+    color: var(--color-grayish-blue);
+  }
 `;
 
 const Discount = styled.span`
-  margin-left: 15px;
   color: var(--color-primary-orange);
   background-color: var(--color-primary-pale-orange);
+  margin-left: 15px;
   border-radius: 7px;
   font-size: 1.4rem;
   padding: 2px 8px;
@@ -19,12 +30,16 @@ const Discount = styled.span`
 `;
 
 function ProductPrice() {
-  let discount = 20;
+  const discount = 20;
+  const currentPrice = 125;
   const previousPrice = 250;
+
   return (
     <>
-      <Price>$125.00 {discount > 0 && <Discount>{discount}%</Discount>}</Price>
-      {previousPrice && <div>${previousPrice}</div>}
+      <Price prevPrice={previousPrice}>
+        <span>${currentPrice.toFixed(2)}</span>{" "}
+        {discount > 0 && <Discount>{discount}%</Discount>}
+      </Price>
     </>
   );
 }
