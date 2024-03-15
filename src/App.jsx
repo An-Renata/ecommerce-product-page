@@ -6,6 +6,10 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import NavLinks from "./ui/NavLinks";
 import UserInfo from "./ui/UserInfo";
 import Main from "./ui/Main";
+import ImagesComponent from "./ui/ImagesComponent";
+import Header from "./ui/Header";
+import ProductDescription from "./ui/ProductDescription";
+import ProductPrice from "./ui/ProductPrice";
 
 const StyledApp = styled.div`
   padding: 0 100px;
@@ -39,92 +43,13 @@ function App() {
 
         {/* Main page */}
         <Main>
-          {/* <div>
-            <div style={{ padding: "0 80px" }}>
-              <img
-                style={{ borderRadius: "10px" }}
-                src="../public/images/image-product-1.jpg"
-                alt="product image"
-              />
+          {/* Images container */}
+          <ImagesComponent />
 
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  paddingTop: "20px",
-                }}
-              >
-                <img
-                  src="../public/images/image-product-1-thumbnail.jpg"
-                  alt="product"
-                  style={{ width: "20%", borderRadius: "10px" }}
-                />
-                <img
-                  src="../public/images/image-product-2-thumbnail.jpg"
-                  alt="product"
-                  style={{ width: "20%", borderRadius: "10px" }}
-                />
-                <img
-                  src="../public/images/image-product-3-thumbnail.jpg"
-                  alt="product"
-                  style={{ width: "20%", borderRadius: "10px" }}
-                />
-                <img
-                  src="../public/images/image-product-4-thumbnail.jpg"
-                  alt="product"
-                  style={{ width: "20%", borderRadius: "10px" }}
-                />
-              </div>
-            </div>
-          </div> */}
-          <header
-            style={{
-              padding: "50px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-            }}
-          >
-            <p
-              style={{
-                color: "var(--color-primary-orange)",
-                textTransform: "uppercase",
-                fontWeight: "600",
-                fontSize: "1.2rem",
-              }}
-            >
-              Sneaker Company
-            </p>
-            <h1
-              style={{
-                textTransform: "capitalize",
-                fontSize: "4rem",
-                lineHeight: "1",
-                marginBottom: "20px",
-              }}
-            >
-              Fall limited edition sneakers
-            </h1>
-
-            <p
-              style={{
-                color: "var(--color-dark-grayish-blue)",
-              }}
-            >
-              These low-profile sneakers are your perfect casual wear companion.
-              Featuring a durable rubber outer sole, they’ll withstand
-              everything the weather can offer.
-            </p>
-
-            <p
-              style={{
-                fontWeight: "600",
-                fontSize: "2.5rem",
-                marginBottom: "30px",
-              }}
-            >
-              $125.00
-            </p>
+          {/* Information about the product */}
+          <Header>
+            <ProductDescription />
+            <ProductPrice />
 
             <div
               style={{
@@ -160,7 +85,7 @@ function App() {
                 Add to cart
               </Button>
             </div>
-          </header>
+          </Header>
         </Main>
       </StyledApp>
     </>

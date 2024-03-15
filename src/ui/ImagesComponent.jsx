@@ -1,43 +1,34 @@
+import styled from "styled-components";
+import MainImage from "./MainImage";
+import { imageData } from "../data/imageData";
+
+const StyledImages = styled.div`
+  padding: 0 80px;
+`;
+
+const ImageThumbnailsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+`;
+
+const Thumbnails = styled.img`
+  width: 20%;
+  border-radius: 10px;
+`;
+
 function ImagesComponent() {
   return (
-    <figure>
-      <div style={{ padding: "0 80px" }}>
-        <img
-          style={{ borderRadius: "10px" }}
-          src="../public/images/image-product-1.jpg"
-          alt="product image"
-        />
+    <StyledImages>
+      <MainImage />
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            paddingTop: "20px",
-          }}
-        >
-          <img
-            src="../public/images/image-product-1-thumbnail.jpg"
-            alt="product"
-            style={{ width: "20%", borderRadius: "10px" }}
-          />
-          <img
-            src="../public/images/image-product-2-thumbnail.jpg"
-            alt="product"
-            style={{ width: "20%", borderRadius: "10px" }}
-          />
-          <img
-            src="../public/images/image-product-3-thumbnail.jpg"
-            alt="product"
-            style={{ width: "20%", borderRadius: "10px" }}
-          />
-          <img
-            src="../public/images/image-product-4-thumbnail.jpg"
-            alt="product"
-            style={{ width: "20%", borderRadius: "10px" }}
-          />
-        </div>
-      </div>
-    </figure>
+      <ImageThumbnailsContainer>
+        {/* Images thumbnails */}
+        {imageData?.map((image) => (
+          <Thumbnails src={image.src} alt={image.alt} key={image.src} />
+        ))}
+      </ImageThumbnailsContainer>
+    </StyledImages>
   );
 }
 
