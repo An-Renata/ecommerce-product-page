@@ -11,6 +11,7 @@ import Header from "./ui/Header";
 import ProductDescription from "./ui/ProductDescription";
 import ProductPrice from "./ui/ProductPrice";
 import AddToCart from "./ui/AddToCart";
+import { ProductProvider } from "./context/ProductContext";
 
 const StyledApp = styled.div`
   padding: 0 100px;
@@ -29,10 +30,8 @@ const NavBar = styled.nav`
 
 //* REACT COMPONENT
 function App() {
-  let quantity = 2;
-
   return (
-    <>
+    <ProductProvider>
       <GlobalStyles />
       <StyledApp>
         {/* Navigation bar */}
@@ -55,7 +54,7 @@ function App() {
           </Header>
         </Main>
       </StyledApp>
-    </>
+    </ProductProvider>
   );
 }
 

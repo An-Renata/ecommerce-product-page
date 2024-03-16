@@ -10,7 +10,7 @@ const Price = styled.div`
 
   &::after {
     content: "${(props) =>
-      props.prevPrice > 0 ? "$" + props.prevPrice.toFixed(2) : ""}";
+      props.prevprice > 0 ? "$" + props.prevprice.toFixed(2) : ""}";
     text-decoration: line-through;
     position: absolute;
     top: 35px;
@@ -36,7 +36,7 @@ function ProductPrice() {
 
   return (
     <>
-      <Price prevPrice={previousPrice}>
+      <Price prevprice={previousPrice}>
         <span>${currentPrice.toFixed(2)}</span>{" "}
         {discount > 0 && <Discount>{discount}%</Discount>}
       </Price>

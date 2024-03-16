@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Cart from "./Cart";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { useProduct } from "../context/ProductContext";
+import { useRef, useState } from "react";
 
 const StyledUser = styled.div`
   display: flex;
@@ -24,23 +26,47 @@ const AvatarImg = styled.img`
   }
 `;
 
+const CartSummary = styled.div`
+  position: absolute;
+  color: var(--color-dark-grayish-blue);
+  width: 200px;
+  border: 1px solid red;
+  ${(props) =>
+    props?.pos?.y &&
+    css`
+      top: ${props.pos.y + 80}px;
+    `};
+`;
+
 function UserInfo() {
+  const { isHoverCart, handleOnMouseOver, handleOnMouseLeave } = useProduct();
+  // const [box, setBox] = useState({});
+  const ref = useRef();
+  let pos;
+
+  if (isHoverCart) {
+    pos = ref.current.getBoundingClientRect();
+  }
+
   return (
     <div>
-      <StyledUser>
+      <StyledUser ref={ref}>
         {/* Cart emoji */}
-        <Cart quantity={2}>
+        <Cart
+          onMouseEnter={handleOnMouseOver}
+          onMouseLeave={handleOnMouseLeave}
+        >
           <HiOutlineShoppingCart
             size={25}
             style={{ display: "flex", alignItems: "center" }}
           />
         </Cart>
-
         <AvatarImg
           src="../public/images/image-avatar.png"
           alt="avatar"
         ></AvatarImg>
       </StyledUser>
+      {isHoverCart && <CartSummary pos={pos}>Cart is empty</CartSummary>}
     </div>
   );
 }

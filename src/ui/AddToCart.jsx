@@ -5,6 +5,7 @@ import {
   HiOutlinePlus,
   HiOutlineShoppingCart,
 } from "react-icons/hi";
+import { useProduct } from "../context/ProductContext";
 
 const StyledAddToCart = styled.div`
   display: flex;
@@ -16,7 +17,6 @@ const StyledAddToCart = styled.div`
 const QuantityCounter = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px;
   background-color: var(--color-light-grayish-blue);
   border-radius: 10px;
   padding: 0 10px;
@@ -24,19 +24,29 @@ const QuantityCounter = styled.div`
   color: var(--color-very-dark-blue);
   font-weight: 600;
   font-size: 1.4rem;
+
+  & span {
+    padding: 0 40px;
+  }
 `;
 
 function AddToCart() {
+  const { quantity, handleIncrement, handleDecrement } = useProduct();
+
   return (
     <StyledAddToCart>
       <QuantityCounter>
-        <Button type="counter">
+        <Button
+          type="counter"
+          onClick={handleDecrement}
+          disabled={quantity === 1}
+        >
           <HiOutlineMinus size={15} />
         </Button>
 
-        <p>2</p>
+        <span>{quantity}</span>
 
-        <Button type="counter">
+        <Button type="counter" onClick={handleIncrement}>
           <HiOutlinePlus size={15} />
         </Button>
       </QuantityCounter>

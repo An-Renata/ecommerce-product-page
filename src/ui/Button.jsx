@@ -11,8 +11,8 @@ const btnType = {
     align-items: center;
     gap: 10px;
     font-size: 1.5rem;
-    flex-grow: 1;
     justify-content: center;
+    flex-grow: 1;
     border-radius: 10px;
     background-color: var(--color-primary-orange);
     color: var(--color-white);
