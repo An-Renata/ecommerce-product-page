@@ -6,7 +6,9 @@ const ProductContext = createContext();
 function ProductProvider({ children }) {
   const [quantity, setQuantity] = useState(1);
   const [isHoverCart, setIsHoverCart] = useState(false);
-  const [addProduct, setAddProduct] = useState(1);
+  const [addProduct, setAddProduct] = useState(0);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleIncrement() {
     setQuantity((value) => value + 1);
@@ -22,6 +24,17 @@ function ProductProvider({ children }) {
     setIsHoverCart((val) => !val);
   }
 
+  function handleAddToCart() {
+    setIsLoading(true);
+
+    // imitating a delay to show the loading and posting data to the server
+    setTimeout(() => {
+      setAddProduct((val) => val + quantity);
+      setQuantity(1);
+      setIsLoading(false);
+    }, 2000);
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -30,6 +43,9 @@ function ProductProvider({ children }) {
         handleIncrement,
         isHoverCart,
         handleOnClick,
+        handleAddToCart,
+        isLoading,
+        addProduct,
       }}
     >
       {children}

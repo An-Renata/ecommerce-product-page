@@ -31,7 +31,13 @@ const QuantityCounter = styled.div`
 `;
 
 function AddToCart() {
-  const { quantity, handleIncrement, handleDecrement } = useProduct();
+  const {
+    quantity,
+    handleIncrement,
+    handleDecrement,
+    handleAddToCart,
+    isLoading,
+  } = useProduct();
 
   return (
     <StyledAddToCart>
@@ -51,9 +57,16 @@ function AddToCart() {
         </Button>
       </QuantityCounter>
 
-      <Button type="addCart">
-        <HiOutlineShoppingCart size={15} />
-        Add to cart
+      <Button type="addCart" onClick={handleAddToCart} disabled={isLoading}>
+        {!isLoading && (
+          <>
+            {" "}
+            <HiOutlineShoppingCart size={15} />
+            Add to cart
+          </>
+        )}
+
+        {isLoading && "Adding items.."}
       </Button>
     </StyledAddToCart>
   );

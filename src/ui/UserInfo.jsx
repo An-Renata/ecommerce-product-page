@@ -11,6 +11,7 @@ const StyledUser = styled.div`
   justify-content: center;
   align-items: center;
   gap: 40px;
+  position: relative;
 `;
 
 const AvatarImg = styled.img`
@@ -27,7 +28,7 @@ const AvatarImg = styled.img`
 `;
 
 function UserInfo() {
-  const { isHoverCart, handleOnClick } = useProduct();
+  const { isHoverCart, handleOnClick, addProduct } = useProduct();
   // const [box, setBox] = useState({});
   const ref = useRef();
   let pos;
@@ -40,7 +41,7 @@ function UserInfo() {
     <div>
       <StyledUser ref={ref}>
         {/* Cart emoji */}
-        <Cart onClick={handleOnClick}>
+        <Cart onClick={handleOnClick} quantity={addProduct}>
           <HiOutlineShoppingCart
             size={25}
             style={{ display: "flex", alignItems: "center" }}
