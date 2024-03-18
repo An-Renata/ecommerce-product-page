@@ -6,6 +6,7 @@ const ProductContext = createContext();
 function ProductProvider({ children }) {
   const [quantity, setQuantity] = useState(1);
   const [isHoverCart, setIsHoverCart] = useState(false);
+  const [addProduct, setAddProduct] = useState(1);
 
   function handleIncrement() {
     setQuantity((value) => value + 1);
@@ -17,12 +18,8 @@ function ProductProvider({ children }) {
     setQuantity((value) => value - 1);
   }
 
-  function handleOnMouseOver() {
-    setIsHoverCart(true);
-  }
-
-  function handleOnMouseLeave() {
-    setIsHoverCart(false);
+  function handleOnClick() {
+    setIsHoverCart((val) => !val);
   }
 
   return (
@@ -32,8 +29,7 @@ function ProductProvider({ children }) {
         handleDecrement,
         handleIncrement,
         isHoverCart,
-        handleOnMouseOver,
-        handleOnMouseLeave,
+        handleOnClick,
       }}
     >
       {children}
