@@ -4,9 +4,14 @@ const ProductContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 function ProductProvider({ children }) {
-  const [quantity, setQuantity] = useState(1);
+  const [addQuantity, setQuantity] = useState(1);
   const [isHoverCart, setIsHoverCart] = useState(false);
-  const [addProduct, setAddProduct] = useState(0);
+  const [addProduct, setAddProduct] = useState({
+    quantity: 0,
+    title: "Fall limited edition sneakers",
+    price: 125,
+    img: "../public/images/image-product-1.jpg",
+  });
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,7 +20,7 @@ function ProductProvider({ children }) {
   }
 
   function handleDecrement() {
-    if (quantity === 1) return;
+    if (addQuantity === 1) return;
 
     setQuantity((value) => value - 1);
   }
@@ -29,7 +34,10 @@ function ProductProvider({ children }) {
 
     // imitating a delay to show the loading and posting data to the server
     setTimeout(() => {
-      setAddProduct((val) => val + quantity);
+      setAddProduct({
+        ...addProduct,
+        quantity: addProduct.quantity + addQuantity,
+      });
       setQuantity(1);
       setIsLoading(false);
     }, 2000);
@@ -38,7 +46,7 @@ function ProductProvider({ children }) {
   return (
     <ProductContext.Provider
       value={{
-        quantity,
+        addQuantity,
         handleDecrement,
         handleIncrement,
         isHoverCart,

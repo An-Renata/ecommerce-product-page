@@ -2,6 +2,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 import styled, { css } from "styled-components";
 
 import Button from "./Button";
+import { useProduct } from "../context/ProductContext";
 
 const StyledCartSummary = styled.div`
   position: absolute;
@@ -43,19 +44,23 @@ const StyledCartSummary = styled.div`
 `;
 
 function CartSummary({ pos }) {
+  const { addProduct } = useProduct();
+
   return (
     <StyledCartSummary pos={pos}>
       <h2>Cart</h2>
 
       <div>
         <img
-          src="../public/images/image-product-1-thumbnail.jpg"
+          src={addProduct.img}
           style={{ width: "10%", height: "10%", borderRadius: "5px" }}
         />
         <div>
-          <h3>Fall Limited Edition Sneakers</h3>
-          <p>$125.00 x 3</p>
-          <p>$375.00</p>
+          <h3>{addProduct.title}</h3>
+          <p>
+            ${addProduct.price.toFixed(2)} x {addProduct.quantity}
+          </p>
+          <p>${(addProduct.price * addProduct.quantity).toFixed(2)}</p>
         </div>
         <Button>
           <HiOutlineTrash size={15} />

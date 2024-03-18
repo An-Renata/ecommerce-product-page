@@ -32,7 +32,7 @@ const QuantityCounter = styled.div`
 
 function AddToCart() {
   const {
-    quantity,
+    addQuantity,
     handleIncrement,
     handleDecrement,
     handleAddToCart,
@@ -45,12 +45,12 @@ function AddToCart() {
         <Button
           type="counter"
           onClick={handleDecrement}
-          disabled={quantity === 1}
+          disabled={addQuantity === 1}
         >
           <HiOutlineMinus size={15} />
         </Button>
 
-        <span>{quantity}</span>
+        <span>{addQuantity}</span>
 
         <Button type="counter" onClick={handleIncrement}>
           <HiOutlinePlus size={15} />

@@ -29,10 +29,11 @@ const AvatarImg = styled.img`
 
 function UserInfo() {
   const { isHoverCart, handleOnClick, addProduct } = useProduct();
-  // const [box, setBox] = useState({});
+  // Based on the cart position, set the position of the cart summary below the cart
   const ref = useRef();
   let pos;
 
+  // Set the position of the cart summary
   if (isHoverCart) {
     pos = ref.current.getBoundingClientRect();
   }
@@ -41,17 +42,19 @@ function UserInfo() {
     <div>
       <StyledUser ref={ref}>
         {/* Cart emoji */}
-        <Cart onClick={handleOnClick} quantity={addProduct}>
+        <Cart onClick={handleOnClick} quantity={addProduct.quantity}>
           <HiOutlineShoppingCart
             size={25}
             style={{ display: "flex", alignItems: "center" }}
           />
         </Cart>
+
         <AvatarImg
           src="../public/images/image-avatar.png"
           alt="avatar"
         ></AvatarImg>
       </StyledUser>
+
       {isHoverCart && <CartSummary pos={pos} />}
     </div>
   );
