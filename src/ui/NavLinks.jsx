@@ -37,7 +37,7 @@ function NavLinks() {
   return (
     <UnorderedList>
       <Link type="logo" href="#">
-        <img src="../public/images/logo.svg" alt="company logo" />
+        <img src="../images/logo.svg" alt="company logo" />
       </Link>
       <li>
         <Link href="#">Collections</Link>

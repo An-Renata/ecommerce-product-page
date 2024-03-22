@@ -50,10 +50,7 @@ function UserInfo() {
           />
         </Cart>
 
-        <AvatarImg
-          src="../public/images/image-avatar.png"
-          alt="avatar"
-        ></AvatarImg>
+        <AvatarImg src="../images/image-avatar.png" alt="avatar"></AvatarImg>
       </StyledUser>
 
       {isHoverCart && <CartSummary pos={pos} />}
