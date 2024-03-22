@@ -17,6 +17,17 @@ const btnType = {
     background-color: var(--color-primary-orange);
     color: var(--color-white);
   `,
+
+  removeCart: css`
+    background-color: transparent;
+    color: var(--color-primary-orange);
+  `,
+  checkout: css`
+    padding: 8px 0;
+    border-radius: 10px;
+    background-color: var(--color-primary-orange);
+    color: var(--color-white);
+  `,
 };
 
 const Button = styled.button`
@@ -24,8 +35,7 @@ const Button = styled.button`
   height: inherit;
 
   /* Based on the prop named "type" add additional styles */
-  ${(props) => btnType[props.type]}
-  ${(props) => btnType[props.type]}
+  ${(props) => btnType[props.type]}/* ${(props) => btnType[props.type]} */
 `;
 
 export default Button;

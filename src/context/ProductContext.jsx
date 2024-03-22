@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { imageData } from "../data/imageData";
 
 const ProductContext = createContext();
 
@@ -6,6 +7,7 @@ const ProductContext = createContext();
 function ProductProvider({ children }) {
   const [addQuantity, setQuantity] = useState(1);
   const [isHoverCart, setIsHoverCart] = useState(false);
+
   const [addProduct, setAddProduct] = useState({
     quantity: 0,
     title: "Fall limited edition sneakers",
@@ -43,6 +45,13 @@ function ProductProvider({ children }) {
     }, 2000);
   }
 
+  function handleClearCart() {
+    setAddProduct({
+      ...addProduct,
+      quantity: 0,
+    });
+  }
+
   return (
     <ProductContext.Provider
       value={{
@@ -54,6 +63,7 @@ function ProductProvider({ children }) {
         handleAddToCart,
         isLoading,
         addProduct,
+        handleClearCart,
       }}
     >
       {children}

@@ -4,8 +4,10 @@ const Img = styled.img`
   border-radius: 10px;
 `;
 
-function MainImage() {
-  return <Img src="../public/images/image-product-1.jpg" alt="product image" />;
+// eslint-disable-next-line react/prop-types
+function MainImage({ selectedImage }) {
+  // eslint-disable-next-line react/prop-types
+  return <Img src={selectedImage.srcLarge} alt={selectedImage.alt} />;
 }
 
 export default MainImage;

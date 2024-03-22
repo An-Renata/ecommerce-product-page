@@ -26,8 +26,6 @@ const NavBar = styled.nav`
   border-bottom: 1px solid var(--color-grayish-blue);
 `;
 
-//! MAIN WINDOW
-
 //* REACT COMPONENT
 function App() {
   return (
