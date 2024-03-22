@@ -26,6 +26,7 @@ const Link = styled.a`
       cursor: pointer;
       border-bottom: none;
       padding-bottom: 0;
+      width: 40%;
       &:hover {
         border-bottom: none;
       }

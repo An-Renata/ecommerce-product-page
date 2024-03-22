@@ -1,8 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
-import Button from "./ui/Button";
 
-import { HiOutlineShoppingCart } from "react-icons/hi";
 import NavLinks from "./ui/NavLinks";
 import UserInfo from "./ui/UserInfo";
 import Main from "./ui/Main";

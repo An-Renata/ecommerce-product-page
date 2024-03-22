@@ -16,6 +16,7 @@ const StyledUser = styled.div`
 
 const AvatarImg = styled.img`
   width: 30%;
+  height: 30%;
   border-radius: 50%;
   transition: all 0.2s;
   border: 2px solid transparent;

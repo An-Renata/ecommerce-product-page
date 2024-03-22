@@ -2,11 +2,7 @@ import styled, { css } from "styled-components";
 import MainImage from "./MainImage";
 import { imageData } from "../data/imageData";
 import { useState } from "react";
-import {
-  HiOutlineArrowCircleLeft,
-  HiOutlineArrowLeft,
-  HiOutlineArrowRight,
-} from "react-icons/hi";
+import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
 
 const StyledImages = styled.div`
   padding: 0 80px;
@@ -67,6 +63,7 @@ const MainImageContainer = styled.div`
     transform: translateY(-50%);
   }
 `;
+
 function ImagesComponent() {
   const [selectedImage, setSelectedImage] = useState(imageData[0]);
 
