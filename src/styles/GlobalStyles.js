@@ -34,6 +34,8 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 button {

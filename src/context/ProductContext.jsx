@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { imageData } from "../data/imageData";
 
 const ProductContext = createContext();
 
@@ -12,7 +11,7 @@ function ProductProvider({ children }) {
     quantity: 0,
     title: "Fall limited edition sneakers",
     price: 125,
-    img: "../public/images/image-product-1.jpg",
+    img: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -39,6 +38,7 @@ function ProductProvider({ children }) {
       setAddProduct({
         ...addProduct,
         quantity: addProduct.quantity + addQuantity,
+        img: "../images/image-product-1-thumbnail.jpg",
       });
       setQuantity(1);
       setIsLoading(false);
